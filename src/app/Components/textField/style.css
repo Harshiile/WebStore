@@ -1,0 +1,47 @@
+.formField {
+    margin: 10px;
+    position: relative;
+}
+
+textarea {
+    width: 25vw !important;
+    height: 15vh !important;
+    scrollbar-width: none;
+}
+
+.input {
+    width: 20vw;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 1rem;
+    outline: none;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 550;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+.input:hover,
+.input:focus {
+    box-shadow: 0 0 0 2px #333;
+}
+
+.formField span {
+    position: absolute;
+    left: 0;
+    padding: 0.6rem 1rem;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.input:valid+span,
+.input:focus+span {
+    transform: translateY(-1.85rem) translateX(-0.5rem) scale(0.9);
+    transition: 0.3s ease-in-out;
+}
