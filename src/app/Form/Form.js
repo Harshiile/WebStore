@@ -10,24 +10,49 @@ import caretright from './Assets/caret-right-svgrepo-com.svg'
 import bgImage from './Assets/Home-page-Bg-Image.png'
 import { useForm } from 'react-hook-form';
 
+const formPages = [
+    {
+        tagline: 'Let\'s know about your business',
+        fields: ['Name_of_business', 'Tagline']
+    },
+    {
+        tagline: 'Let\'s increase your Network',
+        fields: ['Email', 'Phone', 'Address']
+    }
+    // 'Drop out some of your customer\'s reviews - 3rd tagline'
+];
+
+const dragDropFunction = e => {
+    e.preventDefault();
+    console.log(e.target.lastElementChild);
+
+
+}
 const Form = () => {
+    const {
+        register,
+        handleSubmit,
+        trigger,
+        formState: { errors },
+    } = useForm()
+
     const [Images, setImages] = useState([])
-
-
-    const tagLines = [
-        'Let\'s know about your business',
-        'Let\'s increase your Network',
-    ];
-    // 'Drop out some of your customer\'s reviews'
-    const [currentPage, setcurrentPage] = useState(1)
+    const [currentPage, setcurrentPage] = useState(0)
 
     const goPrevious = () => {
-        if (currentPage > 1) {
+        if (currentPage > 0) {
             setcurrentPage(currentPage - 1)
         }
     }
-    const goNext = () => {
-        if (currentPage < tagLines.length) {
+    const goNext = async () => {
+        const fields = formPages[currentPage].fields;
+        console.log(fields);
+
+        const output = await trigger([...fields], { shouldFocus: true });
+
+        if (!output) return
+
+        if (currentPage < formPages[currentPage].tagline.length) {
             setcurrentPage(currentPage + 1)
         }
     }
@@ -48,12 +73,6 @@ const Form = () => {
 
         setImages([...Images, { from: e.target.id, value: imageUrl }])
     }
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
 
     return <>
         <div className="main-container">
@@ -91,11 +110,11 @@ const Form = () => {
                 </div>
                 <div className="right">
                     <div className="form_details">
-                        <h2>{tagLines[currentPage - 1]}</h2>
+                        <h2>{formPages[currentPage].tagline}</h2>
                         <form className="form-content" onSubmit={handleSubmit(onFormSubmit)}>
 
 
-                            {currentPage == 1 && <>
+                            {currentPage == 0 && <>
                                 {/* ---------------Business_Details--------------- */}
                                 <div className="business-details">
                                     <div className="dropbox_section">
@@ -143,24 +162,24 @@ const Form = () => {
                             }
 
 
-                            {currentPage == 2 && <>
+                            {currentPage == 1 && <>
                                 {/* ---------------Contact--------------- */}
                                 <div className="contact-details">
                                     <div className="textField">
                                         <div className="formField">
-                                            <input type="text" className="input" {...register("Email")} required={true} />
+                                            <input type="text" className="input" {...register("Email")} required={false} />
                                             <span>Email</span>
                                         </div>
                                     </div>
                                     <div className="textField">
                                         <div className="formField">
-                                            <input type="text" className="input" {...register("Phone")} required={true} />
+                                            <input type="text" className="input" {...register("Phone")} required={false} />
                                             <span>Phone</span>
                                         </div>
                                     </div>
                                     <div className="textField">
                                         <div className="formField">
-                                            <textarea className="input" {...register("Address")} required={true}></textarea>
+                                            <textarea className="input" {...register("Address")} required={false}></textarea>
                                             <span>Address</span>
                                         </div>
                                     </div>
@@ -180,7 +199,7 @@ const Form = () => {
                                     <Image src={caretleft} alt="Previous" />
                                 </span>
                             </div>
-                            {currentPage != tagLines.length ?
+                            {currentPage != formPages.length - 1 ?
                                 <>
                                     <div className="tooltip-container next_btn">
                                         <span className="tooltip">Next</span>

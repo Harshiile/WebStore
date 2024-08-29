@@ -150,3 +150,11 @@ h2::after {
     background-color: #0c0c0c;
     color: white;
 }
+
+.errortext {
+    font-size: 0.85rem;
+    color: red;
+    font-weight: 550;
+    margin-top: 0.5rem;
+    margin-left: 0.7rem;
+}
