@@ -1,0 +1,172 @@
+* {
+    font-weight: 550;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #CDCECF;
+    overflow: hidden;
+}
+
+.form {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: #ffffff;
+    padding: 2rem;
+    width: 28%;
+    border-radius: 1.3rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form button {
+    align-self: flex-end;
+}
+
+.flex-column>label {
+    color: #151717;
+    font-weight: 600;
+}
+
+.inputForm {
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 2.7rem;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    position: relative;
+}
+
+.inputForm img {
+    padding: 0 0.6rem;
+}
+
+.input {
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    width: 85%;
+    height: 95%;
+    font-size: 1.01rem;
+    margin-right: 1rem;
+    letter-spacing: 0.025rem;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.span {
+    font-size: 0.9rem;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button-submit {
+    margin: 0.7rem auto;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-submit:hover {
+    background-color: #252727;
+}
+
+.p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 0.6rem;
+    border-radius: 100%;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.06);
+    transition: all 0.3s;
+}
+
+#showpassword {
+    position: absolute;
+    right: 0;
+}
+
+#showpassword:hover {
+    cursor: pointer;
+}
+
+.autobuttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Media Queries */
+@media screen and (max-width:1200px) {
+    .form {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+
+    *,
+    label,
+    .input,
+    p {
+        font-size: 98%;
+    }
+
+    .form {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    *,
+    label,
+    .input,
+    p {
+        font-size: 97%;
+    }
+
+    .form {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .form {
+        width: 75%;
+    }
+}
+
+/* Media Queries */

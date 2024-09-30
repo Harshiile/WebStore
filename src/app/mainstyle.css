@@ -1,0 +1,16 @@
+.Background-Image {
+    height: 83vh;
+    width: 110vw;
+    position: absolute;
+    left: 0;
+    top: 18vh;
+    z-index: -1;
+}
+
+.errortext {
+    font-size: 0.85rem;
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+    margin-top: -0.5rem;
+    margin-left: 0.7rem;
+}

@@ -30,6 +30,7 @@ textarea {
 }
 
 .formField span {
+    width: 20vw;
     position: absolute;
     left: 0;
     padding: 0.6rem 1rem;
@@ -42,6 +43,14 @@ textarea {
 
 .input:valid+span,
 .input:focus+span {
-    transform: translateY(-1.85rem) translateX(-0.5rem) scale(0.9);
+    transform: translateY(-1.85rem) translateX(-0.75rem) scale(0.9);
     transition: 0.3s ease-in-out;
+}
+
+.textarea:valid+span,
+.textarea:focus+span {
+    transform: translateY(-2rem) translateX(-1.9rem) scale(0.9);
+    width: 40vw;
+    transition: 0.3s ease-in-out;
+    color: black;
 }
